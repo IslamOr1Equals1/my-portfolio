@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Terminal, Menu, X, Shield } from "lucide-react";
+import { Menu, X, Shield } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "~/home" },

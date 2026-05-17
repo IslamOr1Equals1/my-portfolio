@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { Github, Linkedin, Twitter, Terminal } from "lucide-react";
+import { Github, Linkedin, Twitter } from "lucide-react";
+
+const socials = [
+  { href: "https://github.com/yourusername", icon: Github, label: "GitHub" },
+  { href: "https://linkedin.com/in/yourusername", icon: Linkedin, label: "LinkedIn" },
+  { href: "https://twitter.com/yourusername", icon: Twitter, label: "Twitter" },
+];
 
 export default function Footer() {
   return (
@@ -11,8 +17,7 @@ export default function Footer() {
         <div className="font-mono text-xs" style={{ color: "var(--muted)" }}>
           <span style={{ color: "var(--green)" }}>©</span>{" "}
           {new Date().getFullYear()}{" "}
-          <span style={{ color: "var(--cyan)" }}>yourname</span> — built with
-          Next.js & deployed on Vercel.
+          <span style={{ color: "var(--cyan)" }}>yourname</span> — built with Next.js & deployed on Vercel.
           <br />
           <span style={{ color: "var(--muted)" }}>
             All writeups are for educational purposes only.
@@ -20,29 +25,19 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-4">
-          {[
-            { href: "https://github.com/yourusername", icon: Github, label: "GitHub" },
-            { href: "https://linkedin.com/in/yourusername", icon: Linkedin, label: "LinkedIn" },
-            { href: "https://twitter.com/yourusername", icon: Twitter, label: "Twitter" },
-          ].map(({ href, icon: Icon, label }) => (
-            
-              key={href}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-              className="p-2 rounded transition-colors duration-200"
-              style={{ color: "var(--muted)" }}
-              onMouseEnter={(e) =>
-                ((e.currentTarget as HTMLElement).style.color = "var(--green)")
-              }
-              onMouseLeave={(e) =>
-                ((e.currentTarget as HTMLElement).style.color = "var(--muted)")
-              }
-            >
-              <Icon size={18} />
-            </a>
-          ))}
+        {socials.map(({ href, icon: Icon, label }) => (
+  <a
+    key={href}
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={label}
+    className="p-2 rounded transition-colors duration-200"
+    style={{ color: "var(--muted)" }}
+  >
+    <Icon size={18} />
+  </a>
+))}
         </div>
       </div>
     </footer>
